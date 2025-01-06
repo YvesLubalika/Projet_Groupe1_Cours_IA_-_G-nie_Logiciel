@@ -7,7 +7,7 @@ import time
 from sklearn.preprocessing import StandardScaler
 
 
-data = pd.read_csv("E:/Yves LUBALIKA FILES/UNNIVA/Cours L3 Génie Minier/Introduction à l'IA/Projet_IA_Génie_Logiciel/AirQualityUCI.CSV", sep=";", decimal=",")
+data = pd.read_csv("https://github.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/blob/main/AirQualityUCI.csv", sep=";", decimal=",")
 data.head()
 
 data1 = data.iloc[:9357,:15]
