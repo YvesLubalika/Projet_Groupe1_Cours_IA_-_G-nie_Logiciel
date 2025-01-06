@@ -8,6 +8,9 @@ from sklearn.preprocessing import StandardScaler
 
 
 data = pd.read_csv("https://github.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/blob/main/AirQualityUCI.csv", sep=";", decimal=",")
+# Ignorez les lignes problématiques
+df = pd.read_csv('votre_fichier.csv', error_bad_lines=False)
+
 data.head()
 
 data1 = data.iloc[:9357,:15]
