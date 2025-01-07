@@ -220,7 +220,7 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-        def file_selector(base_folder='Education A la Citoyenneté EDC'):
+        def file_selector(base_folder='Cours_Bac1_Génie_Minier'):
             # Lister les sous-dossiers dans le dossier principal
             subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
             selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
