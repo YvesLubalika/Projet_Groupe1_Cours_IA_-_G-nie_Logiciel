@@ -255,29 +255,20 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-        def file_selector(base_folder='Cours_Bac2_Génie_Minier'):
-            # Obtenir le répertoire de travail actuel
-            current_dir = os.getcwd()
-            st.write(f"Répertoire de travail actuel : {current_dir}")
+         def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/tree/main/Cours_Bac1_G%C3%A9nie_Minier/Education%20A%20la%20Citoyennet%C3%A9%20EDC'):
+            # Lister les sous-dossiers dans le dossier principal
+            subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
+            selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
         
-        # Construire le chemin complet du dossier de base
-        base_folder_path = os.path.join(current_dir, base_folder)
-        
-        # Vérifier si le dossier de base existe
-        if not os.path.isdir(base_folder_path):
-            st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
-        return None
-        
-        # Lister les sous-dossiers dans le dossier principal
-        subfolders = [f.name for f in os.scandir(base_folder_path) if f.is_dir()]
-        selected_subfolder = st.selectbox('Sélectionnez un cours', subfolders)
-        
-        # Lister les fichiers PDF dans le sous-dossier sélectionné
-        folder_path = os.path.join(base_folder_path, selected_subfolder)
-        filenames = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
-        selected_filename = st.selectbox('Sélectionnez un fichier PDF', filenames)
-        
-        return os.path.join(folder_path, selected_filename)
+            # Lister les fichiers PDF dans le sous-dossier sélectionné
+            folder_path = os.path.join(base_folder, selected_subfolder)
+            filenames = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
+            selected_filename = st.selectbox('Sélectionnez un fichier PDF', filenames)
+            
+            return os.path.join(folder_path, selected_filename)
+
+        #Créer l'interface utilisateur :
+        st.title("Deuxième année de Licence")
         
         # Utilisation de la fonction file_selector
         selected_file = file_selector()
