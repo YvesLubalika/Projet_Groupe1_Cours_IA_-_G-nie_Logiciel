@@ -245,43 +245,53 @@ def page3():
 
     
     elif page == "Cours Bac2 Génie Minier":
-        st.title("Deuxième annéé de Licence")
-         #Créer la fonction pour afficher le contenu d'un fichier PDF :       
+        st.title("Deuxième année de Licence")
+        
+        # Créer la fonction pour afficher le contenu d'un fichier PDF
         def show_pdf(file_path):
             with open(file_path, "rb") as f:
                 base64_pdf = base64.b64encode(f.read()).decode('utf-8')
                 pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
                 st.markdown(pdf_display, unsafe_allow_html=True)
         
-        #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
+        # Créer la fonction pour sélectionner un sous-dossier et un fichier PDF
+        def file_selector(base_folder='Cours_Bac2_Génie_Minier'):
+            # Obtenir le répertoire de travail actuel
+            current_dir = os.getcwd()
+            st.write(f"Répertoire de travail actuel : {current_dir}")
         
-        def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/tree/main/Cours_Bac1_G%C3%A9nie_Minier/Education%20A%20la%20Citoyennet%C3%A9%20EDC'):
-            # Lister les sous-dossiers dans le dossier principal
-            subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
-            selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
-            
-            # Lister les fichiers PDF dans le sous-dossier sélectionné
-            folder_path = os.path.join(base_folder, selected_subfolder)
-            filenames = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
-            selected_filename = st.selectbox('Sélectionnez un fichier PDF', filenames)
-            
-            return os.path.join(folder_path, selected_filename)
-
-        #Créer l'interface utilisateur :
-        st.title("Deuxième année de Licence")
+        # Construire le chemin complet du dossier de base
+        base_folder_path = os.path.join(current_dir, base_folder)
+        
+        # Vérifier si le dossier de base existe
+        if not os.path.isdir(base_folder_path):
+            st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
+            return None
+        
+        # Lister les sous-dossiers dans le dossier principal
+        subfolders = [f.name for f in os.scandir(base_folder_path) if f.is_dir()]
+        selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
+        
+        # Lister les fichiers PDF dans le sous-dossier sélectionné
+        folder_path = os.path.join(base_folder_path, selected_subfolder)
+        filenames = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
+        selected_filename = st.selectbox('Sélectionnez un fichier PDF', filenames)
+        
+        return os.path.join(folder_path, selected_filename)
         
         # Utilisation de la fonction file_selector
         selected_file = file_selector()
         if selected_file:
             st.write(f"Fichier sélectionné : {selected_file}")
-         
+        
         # Afficher les fichiers PDF lorsque le chemin du dossier est fourni
         try:
             selected_file = file_selector()
             if selected_file:
                 show_pdf(selected_file)
-        except FileNotFoundError:
+            except FileNotFoundError:
             st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
+            
     elif page == "Cours Bac3 Génie Minier":
          #Créer la fonction pour afficher le contenu d'un fichier PDF :       
         def show_pdf(file_path):
