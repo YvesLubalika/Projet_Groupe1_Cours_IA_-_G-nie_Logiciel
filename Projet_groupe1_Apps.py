@@ -290,7 +290,7 @@ def page3():
             if selected_file:
                 show_pdf(selected_file)
         except FileNotFoundError:
-        st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
+            st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
             
     elif page == "Cours Bac3 Génie Minier":
          #Créer la fonction pour afficher le contenu d'un fichier PDF :       
