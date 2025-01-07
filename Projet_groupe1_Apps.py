@@ -13,7 +13,7 @@ url = 'https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_
 # Lire le fichier CSV
 try:
     data = pd.read_csv(url, sep=';', decimal=',')
-    st.write(data.head())
+    #st.write(data.head())
 except pd.errors.ParserError as e:
     st.error(f"Erreur lors de la lecture du fichier CSV : {e}")
     print(e)
