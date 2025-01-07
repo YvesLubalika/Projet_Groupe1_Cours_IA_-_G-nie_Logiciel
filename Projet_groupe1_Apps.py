@@ -255,11 +255,11 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-         def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/tree/main/Cours_Bac1_G%C3%A9nie_Minier/Education%20A%20la%20Citoyennet%C3%A9%20EDC'):
+        def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/tree/main/Cours_Bac1_G%C3%A9nie_Minier/Education%20A%20la%20Citoyennet%C3%A9%20EDC'):
             # Lister les sous-dossiers dans le dossier principal
             subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
             selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
-        
+            
             # Lister les fichiers PDF dans le sous-dossier sélectionné
             folder_path = os.path.join(base_folder, selected_subfolder)
             filenames = [f for f in os.listdir(folder_path) if f.endswith('.pdf')]
