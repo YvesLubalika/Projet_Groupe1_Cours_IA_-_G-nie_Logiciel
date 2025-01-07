@@ -119,7 +119,7 @@ def page1():
         st.write("")
         st.write("")
         st.write("")
-        st.write("AGISHA  NTWALI  Albert")
+        st.write("Prof. AGISHA  NTWALI  Albert")
         
     col15, col16, col17 = st.columns([1, 2, 1])
     with col16:
