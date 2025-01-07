@@ -255,7 +255,7 @@ def page3():
                 st.markdown(pdf_display, unsafe_allow_html=True)
         
         # Créer la fonction pour sélectionner un sous-dossier et un fichier PDF
-        def file_selector(base_folder='Cours_Bac2_Génie_Minier'):
+        def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/main/Cours_Bac3_G%C3%A9nie_Minier'):
             # Obtenir le répertoire de travail actuel
             current_dir = os.getcwd()
             st.write(f"Répertoire de travail actuel : {current_dir}")
