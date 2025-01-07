@@ -99,7 +99,7 @@ def page1():
     with col9:
         st.subheader('')
         st.write("")
-        st.subheader("Présenter par :")
+        st.subheader("Présenté par :")
                     
     with col10:
         st.subheader('')
@@ -313,7 +313,7 @@ def page3():
    
 # Définir les pages disponibles
 pages = {
-    "Présentation_groupe": page1,
+    "Présentation_groupe1": page1,
     "prédiction CO et NOx": page2,
     "Cours Licence Genie Minier UOB": page3
     }
