@@ -11,12 +11,12 @@ from sklearn.preprocessing import StandardScaler
 url = 'https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/main/AirQualityUCI.csv'
 
 # Lire le fichier CSV
-try:
-    data = pd.read_csv(url, sep=';', decimal=',')
+#try:
+data = pd.read_csv(url, sep=';', decimal=',')
     #st.write(data.head())
-except pd.errors.ParserError as e:
-    st.error(f"Erreur lors de la lecture du fichier CSV : {e}")
-    print(e)
+#except pd.errors.ParserError as e:
+    #st.error(f"Erreur lors de la lecture du fichier CSV : {e}")
+    #print(e)
 
 data.head()
 
