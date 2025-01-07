@@ -302,7 +302,7 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-        def file_selector(base_folder='https://github.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/tree/main/Cours_Bac3_G%C3%A9nie_Minier'):
+        def file_selector(base_folder='https://raw.githubusercontent.com/YvesLubalika/Projet_Groupe1_Cours_IA_-_G-nie_Logiciel/main/Cours_Bac3_G%C3%A9nie_Minier'):
             # Lister les sous-dossiers dans le dossier principal
             subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
             selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
@@ -324,8 +324,7 @@ def page3():
                 show_pdf(selected_file)
         except FileNotFoundError:
             st.error("Dossier non trouvé. Veuillez vérifier le chemin et réessayer.")
-        st.title("Bienvenue sur la Page 3")
-        st.write("Contenu de la Page 3")
+
    
 # Définir les pages disponibles
 pages = {
