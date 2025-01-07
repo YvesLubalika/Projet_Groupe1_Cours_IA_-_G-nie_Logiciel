@@ -204,10 +204,10 @@ def page2():
 def page3():
         # Créer la barre latérale avec des liens vers d'autres pages
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Ouvrir :", ["Cours_Bac1_Génie_Minier", "Cours Bac2 Génie Minier", "Cours Bac3 Génie Minier"])
+    page = st.sidebar.radio("Ouvrir :", ["Cours Bac1 Génie Minier", "Cours Bac2 Génie Minier", "Cours Bac3 Génie Minier"])
     
     # Afficher le contenu en fonction de la page sélectionnée
-    if page == "Cours Bac2 Génie Minier":
+    if page == "Cours Bac1 Génie Minier":
         #Créer la fonction pour afficher le contenu d'un fichier PDF :       
         def show_pdf(file_path):
             with open(file_path, "rb") as f:
@@ -217,7 +217,7 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-        def file_selector(base_folder='Cours_Bac2_Génie_Minier'):
+        def file_selector(base_folder='Cours_Bac1_Génie_Minier'):
             # Lister les sous-dossiers dans le dossier principal
             subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
             selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
