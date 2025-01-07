@@ -202,15 +202,12 @@ def page2():
     st.write('Cette application utilise le modèle de machine learning Random Forest pour prédire la concentration de CO et NOx en fonction des données météorologiques et des réponses des capteurs.')
 
 def page3():
-    # Créer trois colonnes avec des largeurs différentes
-    col1, col2, col3 = st.columns([1, 1, 1])
         # Créer la barre latérale avec des liens vers d'autres pages
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Ouvrir :", ["Cours_Bac1_Génie_Minier", "Cours Bac2 Génie Minier", "Cours Bac3 Génie Minier"])
     
     # Afficher le contenu en fonction de la page sélectionnée
-    if page == "Cours Bac1 Génie Minier":
-        
+    if page == "Cours Bac2 Génie Minier":
         #Créer la fonction pour afficher le contenu d'un fichier PDF :       
         def show_pdf(file_path):
             with open(file_path, "rb") as f:
@@ -220,7 +217,7 @@ def page3():
         
         #Créer la fonction pour sélectionner un sous-dossier et un fichier PDF :
         
-        def file_selector(base_folder='Cours_Bac1_Génie_Minier'):
+        def file_selector(base_folder='Cours_Bac2_Génie_Minier'):
             # Lister les sous-dossiers dans le dossier principal
             subfolders = [f.name for f in os.scandir(base_folder) if f.is_dir()]
             selected_subfolder = st.selectbox('Sélectionnez un sous-dossier', subfolders)
@@ -233,7 +230,7 @@ def page3():
             return os.path.join(folder_path, selected_filename)
          
         #Créer l'interface utilisateur :
-        st.title("Premième annéé de Licence")
+        st.title("Dernière année")
         
         # Afficher les fichiers PDF lorsque le chemin du dossier est fourni
         try:
